@@ -1,0 +1,99 @@
+---
+// --- PROPS ---
+// Prop untuk URL Google Calendar yang sudah berisi detail tanggal dan lokasi
+const { calendarUrl } = Astro.props; 
+import { Image } from 'astro:assets';
+import orn25 from '../assets/images/orn-25-min.webp';
+import orn29 from '../assets/images/orn-29-min.webp';
+import orn35 from '../assets/images/orn-35-min.webp';
+import orn2 from '../assets/images/orn-2-min.webp';
+import orn3 from '../assets/images/orn-3-min.webp';
+import orn4 from '../assets/images/orn-4-min.webp';
+import orn12 from '../assets/images/orn-12-min.webp';
+import ornFrame3 from '../assets/images/orn-frame-3-min.webp';
+---
+<section class="save-date-wrap" style="display: none;">
+    <div class="save-date-inner">
+        <div class="orn-filter--top tc-1">
+            <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">  
+                <Image src={orn25} alt="Ornament" format="webp" loading="lazy" />
+            </div>
+        </div>
+        
+        <div class="save-date-head">
+            <h1 class="save-date-title" data-aos="zoom-in" data-aos-duration="1000" style="font-family: Hurricane, sans-serif">Save The Date</h1>
+        </div>
+        
+        <div class="save-date-frame">
+            <div class="ornaments-wrapper">
+                <div class="orn-savedate--top tc-1">
+                    <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100"> <Image src={orn29} alt="Ornament" format="webp" loading="lazy" /> </div>
+                </div>
+                <div class="orn-savedate--top tl-1">
+                    <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200"> <Image src={orn35} alt="Ornament" format="webp" loading="lazy" /> </div>
+                </div>
+                <div class="orn-savedate--top tr-1">
+                    <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300"> <Image src={orn35} alt="Ornament" format="webp" loading="lazy" /> </div>
+                </div>
+            </div>
+            
+            <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400"> 
+                <Image src={ornFrame3} alt="Ornament" format="webp" loading="lazy" />
+            </div>
+            
+            <div class="ornaments-wrapper">
+                <div class="orn-savedate--bottom bl-1">
+                    <div class="orn-savedate--bottom bl-4">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100"> <Image src={orn2} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="orn-savedate--bottom bl-3">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200"> <Image src={orn3} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="orn-savedate--bottom bl-2">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300"> <Image src={orn4} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400"> <Image src={orn12} alt="Ornament" format="webp" loading="lazy" /> </div>
+                </div>
+                <div class="orn-savedate--bottom br-1">
+                    <div class="orn-savedate--bottom bl-4">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100"> <Image src={orn2} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="orn-savedate--bottom bl-3">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200"> <Image src={orn3} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="orn-savedate--bottom bl-2">
+                        <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300"> <Image src={orn4} alt="Ornament" format="webp" loading="lazy" /> </div>
+                    </div>
+                    <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="400"> <Image src={orn12} alt="Ornament" format="webp" loading="lazy" /> </div>
+                </div>
+            </div> 
+            
+            <div class="save-date">
+                <div class="save-date-body">
+                    <div class="countdown">
+                        <div class="count-item" data-aos="fade-down-right" data-aos-duration="1200" data-aos-delay="100">
+                            <h2 class="count-num" style="font-family: Hurricane, sans-serif; font-size: 35px !important;" id="days">00</h2>
+                            <small class="count-text">Hari</small>
+                        </div>
+                        <div class="count-item" data-aos="fade-down-left" data-aos-duration="1200" data-aos-delay="300">
+                            <h2 class="count-num" style="font-family: Hurricane, sans-serif; font-size: 35px !important;" id="hours">00</h2>
+                            <small class="count-text">Jam</small>
+                        </div>
+                        <div class="count-item" data-aos="fade-up-right" data-aos-duration="1200" data-aos-delay="500">
+                            <h2 class="count-num" style="font-family: Hurricane, sans-serif; font-size: 35px !important;" id="minutes">00</h2>
+                            <small class="count-text">Menit</small>
+                        </div>
+                        <div class="count-item" data-aos="fade-up-left" data-aos-duration="1200" data-aos-delay="700">
+                            <h2 class="count-num" style="font-family: Hurricane, sans-serif; font-size: 35px !important;" id="seconds">00</h2>
+                            <small class="count-text">Detik</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="add-to-calendar-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1100"> 
+            <a class="add-to-calendar" target="_blank" rel="noopener noreferrer" id="addToCalendar" href={calendarUrl}>Tambahkan ke Kalender</a> 
+        </div>
+    </div>
+</section>

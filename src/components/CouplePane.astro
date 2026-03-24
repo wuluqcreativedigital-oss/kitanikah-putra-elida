@@ -1,0 +1,140 @@
+---
+// --- PROPS ---
+export interface CoupleDetails {
+    name: string;
+    parents: string; // Anak Pertama Dari Bapak Roni dan Ibu Ridha
+    photoUrl: string; // URL foto
+    photoAlt: string; // Deskripsi foto
+    childOrder: string; // Anak keberapa (misal: "Anak Pertama", "Anak Ketiga")
+}
+
+interface Props {
+    groomData: CoupleDetails;
+    brideData: CoupleDetails;
+}
+
+const { groomData, brideData } = Astro.props;
+// Fungsi helper untuk mendapatkan path gambar ornamen
+import { Image } from 'astro:assets';
+
+import orn38 from '../assets/images/orn-38-min.webp';
+import ornFrame from '../assets/images/orn-frame-1-min.webp';
+import orn6 from '../assets/images/orn-6-min.webp';
+import orn4 from '../assets/images/orn-4-min.webp';
+import orn2 from '../assets/images/orn-2-min.webp';
+import orn39 from '../assets/images/orn-39-min.webp';
+import orn11 from '../assets/images/orn-11-min.webp';
+
+---
+<section class="couple-wrap"  style="display: none;">
+    <div class="couple">
+        
+        <div class="couple-head">
+            <h1 data-aos="zoom-in" data-aos-duration="1000" class="couple-title" style="font-family: Hurricane, sans-serif; font-size: 2.5rem !important;">Mempelai</h1> 
+            <p data-aos="fade-up" data-aos-duration="1000" class="couple-description">Tanpa mengurangi rasa hormat, kami memberikan kabar bahagia ini dan memohon restu dari rekan sekalian untuk senantiasa mendoakan kelancaran acara pernikahan kami.</p>
+        </div> 
+        
+        <div class="couple-body show-picture">
+            
+            <div class="couple-info groom">
+                <div class="couple-preview">
+                    <div class="couple-frame">
+                        <div class="orn-couple--top tl-1"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn38} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div class="orn-couple--top tr-1"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn38} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        
+                        <div class="couple-picture-wrap">
+                            <div data-aos="zoom-out" data-aos-duration="1000" class="couple-picture lightgallery">
+                                <a href={groomData.photoUrl} target="_blank" rel="noopener noreferrer" class="img-wrap">
+                                    <!-- <img src={groomData.photoUrl} alt={groomData.photoAlt} class="img"> -->
+                                    <Image src={groomData.photoUrl} alt={groomData.photoAlt} format="webp" loading="lazy" class="img" />
+                                </a>
+                            </div>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000" class="image-wrap"><Image src={ornFrame} alt="Ornament Frame" format="webp" loading="lazy" /></div> 
+                        
+                        <div class="orn-couple--bottom bl-1">
+                            <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn6} alt="Ornament" format="webp" loading="lazy" /></div> 
+                            <div class="orn-couple--bottom bl-2"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn4} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                        </div> 
+                        <div class="orn-couple--bottom br-1">
+                            <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn6} alt="Ornament" format="webp" loading="lazy" /></div> 
+                            <div class="orn-couple--bottom bl-2"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn4} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                        </div>
+                    </div> 
+                    
+                    <div class="orn-couple--top tl-2">
+                        <div class="orn-couple--top tl-4"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn2} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn39} alt="Ornament" format="webp" loading="lazy" /></div> 
+                        <div class="orn-couple--top tl-3"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn11} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                    </div> 
+                    <div class="orn-couple--top tr-2">
+                        <div class="orn-couple--top tl-4"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn2} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn39} alt="Ornament" format="webp" loading="lazy" /></div> 
+                        <div class="orn-couple--top tl-3"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn11} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                    </div>
+                </div> 
+                
+                <div class="couple-details">
+                    <h2 data-aos="fade-up" data-aos-duration="1000" class="couple-name" style="font-family: Hurricane, sans-serif; font-size: 2rem !important;">{groomData.name}</h2> 
+                    <p data-aos="fade-up" data-aos-duration="1000" class="couple-parents profil-groom">{groomData.childOrder} dari {groomData.parents}</p> 
+                    <div data-aos="fade-up" data-aos-duration="1000" class="couple-link-wrap">
+                        
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="separator-wrap">
+                <div data-aos="zoom-in" data-aos-duration="1500" class="separator">
+                    <h2 class="couple-separator" style="font-family: Hurricane, sans-serif; font-size: 2.5rem !important;">&amp;</h2>
+                </div>
+            </div> 
+            
+            <div class="couple-info bride">
+                <div class="couple-preview">
+                    <div class="couple-frame">
+                         <div class="orn-couple--top tl-1"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn38} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div class="orn-couple--top tr-1"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn38} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        
+                        <div class="couple-picture-wrap">
+                            <div data-aos="zoom-out" data-aos-duration="1000" class="couple-picture lightgallery">
+                                <a href={brideData.photoUrl} target="_blank" rel="noopener noreferrer" class="img-wrap">
+                                    <Image src={brideData.photoUrl} alt={brideData.photoAlt} format="webp" class="img" loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div data-aos="zoom-in" data-aos-duration="1000" class="image-wrap"><Image src={ornFrame} alt="Ornament Frame" format="webp" loading="lazy" /></div> 
+                        
+                        <div class="orn-couple--bottom bl-1">
+                            <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn6} alt="Ornament" format="webp" loading="lazy" /></div> 
+                            <div class="orn-couple--bottom bl-2"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn4} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                        </div> 
+                        <div class="orn-couple--bottom br-1">
+                            <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn6} alt="Ornament" format="webp" loading="lazy" /></div> 
+                            <div class="orn-couple--bottom bl-2"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn4} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                        </div>
+                    </div> 
+                    
+                    <div class="orn-couple--top tl-2">
+                        <div class="orn-couple--top tl-4"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn2} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn39} alt="Ornament" format="webp" loading="lazy" /></div> 
+                        <div class="orn-couple--top tl-3"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn11} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                    </div> 
+                    <div class="orn-couple--top tr-2">
+                        <div class="orn-couple--top tl-4"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn2} alt="Ornament" format="webp" loading="lazy" /></div></div> 
+                        <div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200" class="image-wrap"><Image src={orn39} alt="Ornament" format="webp" loading="lazy" /></div> 
+                        <div class="orn-couple--top tl-3"><div data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100" class="image-wrap"><Image src={orn11} alt="Ornament" format="webp" loading="lazy" /></div></div>
+                    </div>
+                </div> 
+                
+                <div class="couple-details">
+                    <h2 data-aos="fade-up" data-aos-duration="1000" class="couple-name" style="font-family: Hurricane, sans-serif; font-size: 2rem !important;">{brideData.name}</h2> 
+                    <p data-aos="fade-up" data-aos-duration="1000" class="couple-parents profil-groom">{brideData.childOrder} dari {brideData.parents}</p> 
+                    <div data-aos="fade-up" data-aos-duration="1000" class="couple-link-wrap">
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    

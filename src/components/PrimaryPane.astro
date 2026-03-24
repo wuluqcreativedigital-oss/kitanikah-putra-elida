@@ -1,0 +1,157 @@
+---
+// --- PROPS ---
+const { displayedTitleName, displayedGuestName } = Astro.props;
+import { Image } from 'astro:assets';
+
+import BgOverlay from '../assets/images/bg-overlay-min.webp';
+import bgMount from '../assets/images/bg-min.webp';
+import ornFrame from '../assets/images/orn-frame-2-min.webp';
+import orn33 from '../assets/images/orn-33-min.webp';
+import orn1 from '../assets/images/orn-1-min.webp';
+import orn5 from '../assets/images/orn-5-min.webp';
+import orn2 from '../assets/images/orn-2-min.webp';
+import orn41 from '../assets/images/orn-41-min.webp';
+import orn37 from '../assets/images/orn-37-min.webp';
+import orn36 from '../assets/images/orn-36-min.webp';
+import orn28 from '../assets/images/orn-28-min.webp';
+import orn3 from '../assets/images/orn-3-min.webp';
+import orn8 from '../assets/images/orn-8-min.webp';
+import orn40 from '../assets/images/orn-40-min.webp';
+
+
+---
+<section class="primary-pane">
+    <div class="inner">
+        <div class="ornaments-wrapper">
+            <div class="bg-primary-forest">
+                <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100">
+                    <Image src={BgOverlay} alt="Background Overlay" format="webp" loading="eager" />
+                </div>
+            </div>
+            <div class="bg-primary-mount">
+                <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
+                    <Image src={bgMount} alt="Background Mountain" format="webp" loading="eager" />
+                </div>
+            </div>
+            <div class="orn-primary-frame">
+                <div class="image-wrap" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300">
+                    <Image src={ornFrame} alt="Frame Ornament" format="webp" loading="eager" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="primary-pane-content">
+            <div class="primary-pane-details">
+                <div class="primary-pane-details--content">
+                    <h1 class="primary-pane-title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="700" style="font-family: Hurricane, sans-serif">{displayedTitleName}</h1>
+                    <div class="link-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1200">
+                        <p class="" style="font-size: 16px !important;">Kepada Yth. Bapak/Ibu/Saudara/i<br>&nbsp; **{displayedGuestName}** </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ornaments-wrapper">
+                <div class="orn-primary--bottom br-1">
+                    <div class="orn-primary--bottom br-5">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"> 
+                            <Image src={orn33} alt="Ornament 33" format="webp" loading="lazy" />
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-4">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"> 
+                            <Image src={orn1} alt="Ornament 1" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-3">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300"> 
+                            <Image src={orn5} alt="Ornament 5" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-2">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"> 
+                            <Image src={orn2} alt="Ornament 2" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500"> 
+                        <Image src={orn41} alt="Ornament 41" format="webp" loading="lazy" /> 
+                    </div>
+                    <div class="orn-primary--bottom br-6">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"> 
+                            <Image src={orn37} alt="Ornament 37" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-7">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"> 
+                            <Image src={orn36} alt="Ornament 36" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-8">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300"> 
+                            <Image src={orn28} alt="Ornament 28" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-9">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"> 
+                            <Image src={orn3} alt="Ornament 3" format="webp" loading="lazy" /> 
+                            
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-10">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500"> 
+                            <Image src={orn8} alt="Ornament 8" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                </div>
+                <div class="orn-primary--bottom bl-1">
+                    <div class="orn-primary--bottom br-5">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"> 
+                            <Image src={orn33} alt="Ornament 33" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-4">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"> 
+                            <Image src={orn1} alt="Ornament 1" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-3">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300"> 
+                            <Image src={orn5} alt="Ornament 5" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-2">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"> 
+                            <Image src={orn2} alt="Ornament 2" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500"> 
+                        <Image src={orn40} alt="Ornament 40" format="webp" loading="lazy" /> 
+                    </div>
+                    <div class="orn-primary--bottom br-6">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"> 
+                            <Image src={orn37} alt="Ornament 37" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-7">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"> 
+                            <Image src={orn36} alt="Ornament 36" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-8">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300"> 
+                            <Image src={orn28} alt="Ornament 28" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-9">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"> 
+                            <Image src={orn3} alt="Ornament 3" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                    <div class="orn-primary--bottom br-10">
+                        <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500"> 
+                            <Image src={orn8} alt="Ornament 8" format="webp" loading="lazy" /> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

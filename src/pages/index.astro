@@ -1,0 +1,194 @@
+---
+// --- IMPOR FILE (Script dan Style) ---
+// ⚠️ PENTING: Mengimpor file CSS dan JS yang ada di src/assets/
+// import 'css/global.css'; 
+// import 'css/exclusive.css';
+
+// --- PROLOG (FRONTMATTER) ---
+import { Image } from 'astro:assets';
+
+import HeadMetaData from '../components/HeadMetaData.astro';
+import PrimaryPane from '../components/PrimaryPane.astro';
+import SecondaryPane from '../components/SecondaryPane.astro';
+import QuotePane from '../components/QuotePane.astro';
+import CouplePane from '../components/CouplePane.astro';
+import SaveDatePane from '../components/SaveDatePane.astro';
+import AgendaPane from '../components/AgendaPane.astro';
+import RsvpPane from '../components/RsvpPane.astro';
+import WeddingGiftPane from '../components/WeddingGiftPane.astro';
+import FootnapePane from '../components/FootnapePane.astro';
+import MusicControlPane from '../components/MusicControlPane.astro';
+import CoupleMan from '../assets/images/couple-man.webp';
+import CoupleWoman from '../assets/images/couple-woman.webp';
+import BankLogoBCA from '../assets/images/bank-bca.svg';
+import BankLogoMandiri from '../assets/images/bank-mandiri.svg';
+
+
+// --- LOGIKA VARIABEL DINAMIS ---
+
+const { nama } = Astro.params; 
+const tamuUndangan = Astro.url.searchParams.get('to');
+const displayedTitleName = (nama && nama.includes('-')) 
+    ? nama.split('-').map(n => n.charAt(0).toUpperCase() + n.slice(1)).join(' & ') 
+    : 'Putra & Elida';
+const displayedGuestName = tamuUndangan 
+    ? tamuUndangan.replace(/\+/g, ' ') 
+    : 'Tamu Undangan';
+
+
+// --- DATA MEMPELAI ---
+const groomData = {
+    name: 'Ucok Saputra, M. Pd. (Putra)',
+    parents: 'Alm bapak Rustam dan Ibu Martin',
+    photoUrl: CoupleMan, 
+    photoAlt: 'Foto Calon Pengantin Pria',
+    childOrder: 'Putra Ketujuh '
+};
+
+const brideData = {
+    name: 'Elida Hafni Batubara (Elida)',
+    parents: 'Bapak Zulparman dan Ibu Laila Hafni',
+    // ⚠️ PERBAIKAN: Ganti /src/assets/... dengan path yang benar
+    photoUrl: CoupleWoman, 
+    photoAlt: 'Foto Calon Pengantin Wanita',
+    childOrder: 'Putri Ketiga'
+};
+
+
+
+
+const dataBanks = [
+    { 
+        id: 'bca', 
+        bankName: 'Bank Muamalat', 
+        accountNumber: '2310050028', 
+        accountHolder: 'Elida', 
+        logoAsset: BankLogoBCA 
+    },
+    { 
+        id: 'mandiri', 
+        bankName: 'Bank Mandiri', 
+        accountNumber: '1640003686708', 
+        accountHolder: 'Ucok Saputra', 
+        logoAsset: BankLogoMandiri
+    },
+];
+
+
+const eventStart = '20260405T080000';
+const eventEnd = '20260405T170000';
+const eventTitle = `Pernikahan ${displayedTitleName}`;
+const eventDetails = `Undangan Pernikahan ${displayedTitleName}`;
+const eventLocation = 'Jalan Raja Inal Siregar (Perumahan Otoyana). Gg Bukit Horas. Batunadu Jae';
+const encodedTitle = encodeURIComponent(eventTitle);
+const encodedDetails = encodeURIComponent(eventDetails);
+const encodedLocation = encodeURIComponent(eventLocation);
+const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodedTitle}&dates=${eventStart}/${eventEnd}&details=${encodedDetails}&location=${encodedLocation}`;
+
+const dayName = 'Minggu';
+const dateNum = '05';
+const monthName = 'April';
+const yearNum = '2026';
+const activityTitle = 'Akad & Resepsi Pernikahan';
+const timeRange = '08:00 WIB - Selesai';
+const locationName = 'Jalan Raja Inal Siregar (Perumahan Otoyana). Gg Bukit Horas. Batunadu Jae';
+const mapsUrl = 'https://maps.app.goo.gl/9ACZoR8io3WxbSp66'; 
+
+const musicUrl = "https://dl.dropboxusercontent.com/scl/fi/sr8ef4zwt4n8o4ayuk33j/wedding-song.mpeg?rlkey=ab2n7tjdasvy6kl2pt0ix9fmv";
+
+// ⚠️ PERBAIKAN: Path share image harus absolut atau relatif ke root, bukan /src/assets
+const BASE_URL = Astro.site ? Astro.site.origin : 'https://kitanikah-putra-elida.vercel.app';
+const shareImageUrl = `${BASE_URL}/images/wulan-lukman-share.png`;
+const canonicalUrl = "https://kitanikah-putra-elida.vercel.app"; 
+const mainTitle = `Undangan Pernikahan ${displayedTitleName} - 05 April 2026`;
+const mainDescription = "Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir dalam acara pernikahan Putra & Elida pada Minggu, 05 April 2026 di Jalan Raja Inal Siregar (Perumahan Otoyana).";
+
+// Variabel untuk logo bank
+const bankLogoBCA = '../assets/images/bank-bca.svg';
+const bankLogoMandiri = '../assets/images/bank-mandiri.svg';
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <HeadMetaData 
+        mainTitle={mainTitle}
+        mainDescription={mainDescription}
+        displayedTitleName={displayedTitleName}
+        canonicalUrl={canonicalUrl}
+        shareImageUrl={shareImageUrl}
+    />
+</head>
+<body class="wedingkita original preset-original">
+    <section class="kat-page__side-to-side">
+        <PrimaryPane 
+                displayedTitleName={displayedTitleName} 
+                displayedGuestName={displayedGuestName}
+        />
+        
+        <SecondaryPane 
+                displayedTitleName={displayedTitleName} 
+                displayedGuestName={displayedGuestName}
+        />
+        
+        <QuotePane />
+        <CouplePane 
+            groomData={groomData}
+            brideData={brideData}
+        />
+
+        
+        <SaveDatePane calendarUrl={calendarUrl} />
+        <AgendaPane 
+            dayName={dayName}
+            dateNum={dateNum}
+            monthName={monthName}
+            yearNum={yearNum}
+            activityTitle={activityTitle}
+            timeRange={timeRange}
+            locationName={locationName}
+            mapsUrl={mapsUrl}
+        /> 
+        <RsvpPane />
+        <WeddingGiftPane 
+            dataBanks={dataBanks}
+        />
+        <FootnapePane />
+        <MusicControlPane musicUrl={musicUrl} />
+    </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="/js/wedding-invitation.js" is:inline is:global></script>
+    <script src="/js/aos.js" is:inline is:global></script>
+
+    <script is:inline is:global>
+      function copyBankAccount(idNumber, idStatus) {
+          const accountNumberElement = document.getElementById(idNumber);
+          const statusElement = document.getElementById(idStatus);
+          if (!accountNumberElement) return;
+
+          const text = accountNumberElement.innerText.trim();
+          navigator.clipboard.writeText(text).then(() => {
+              if (statusElement) {
+                  statusElement.innerText = "Berhasil disalin!";
+                  statusElement.classList.remove("opacity-0", "translate-y-1");
+                  statusElement.classList.add("opacity-100", "translate-y-0");
+                  setTimeout(() => {
+                      statusElement.classList.remove("opacity-100", "translate-y-0");
+                      statusElement.classList.add("opacity-0", "translate-y-1");
+                  }, 2000);
+              }
+          });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll(".bank-item").forEach((item) => {
+              item.addEventListener("click", () => {
+                  const num = item.getAttribute("data-copy-number");
+                  const status = item.getAttribute("data-copy-status");
+                  copyBankAccount(num, status);
+              });
+          });
+      });
+    </script>
+
+    </body>
+</html>

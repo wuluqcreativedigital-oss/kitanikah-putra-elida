@@ -1,0 +1,147 @@
+---
+
+const { dataBanks = [] } = Astro.props;
+import { Image } from 'astro:assets';
+import orn30 from '../assets/images/orn-30-min.webp';
+
+---
+<section class="wedding-gift-wrap" style="display: none;">
+    <div class="wedding-gift-inner">
+        <div class="wedding-gift-head">
+            <h1 class="wedding-gift-title" data-aos="zoom-in" data-aos-duration="1500">Wedding Gift</h1>
+            <p class="wedding-gift-description" data-aos="fade-up" data-aos-duration="1000">Jika berkenan memberikan hadiah, dapat dikirim melalui rekening berikut</p>
+        </div>
+        
+        <div class="wedding-gift-body-wrap py-4">
+            <div class="wedding-gift-body p-4">
+                <div class="w-full mx-auto p-8 rounded-2xl text-center shadow-2xl border border-opacity-20" style="background: linear-gradient(135deg, rgba(255, 250, 235, 0.95) 0%, rgba(243, 228, 216, 0.95) 100%); border-color: var(--text-primary);" data-aos="fade-up" data-aos-duration="1000">
+                    
+                  <div class="mb-10 text-center flex flex-col items-center" style="margin-bottom: 20px;">
+                        <div 
+                                class="w-16 h-16 mb-4 rounded-full flex items-center justify-center" 
+                                style="background: linear-gradient(135deg, var(--button-background-primary), var(--button-background-secondary)); margin-top: 20px !important;"
+                            >
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 7h-2.18C17.93 6.69 18 6.35 18 6a4 4 0 0 0-7-2.65A4 4 0 0 0 4 6c0 .35.07.69.18 1H2v4h2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9h2V7ZM14 4a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2Zm-6 2a2 2 0 1 1 2-2 2 2 0 0 1-2 2Zm12 3v2H4V9h16Zm-2 4v8H6v-8h12Z"/>
+                            </svg>
+                        </div>
+
+                        <h3 
+                            class="text-xl font-semibold mb-2" 
+                            style="color: var(--text-primary); font-family: 'Crimson Text', serif;"
+                        >
+                            Tanda Kasih
+                        </h3>
+
+                        <p class="text-sm opacity-80 max-w-xs" style="color: var(--text-secondary);">
+                            Pilih rekening untuk mengirim hadiah lalu klik kotak putih untuk menyalin nomor rekening.
+                        </p>
+                    </div>
+                    <div class="space-y-6 mb-10 flex flex-col items-center">
+                        {dataBanks.map((bank) => (
+                            <div 
+                                data-copy-number={`${bank.id}-number`}
+                                data-copy-status={`${bank.id}-status`}
+                                class="bank-item group relative overflow-hidden rounded-xl w-[80%] p-6 mb-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer border-dashed border-2"
+                                style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 2px dashed rgba(97, 57, 71, 0.3); margin-bottom: 20px;"
+                            >
+                                <div class="flex flex-col items-center text-center mb-8">
+                                    
+                                    <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center shadow-md mb-3">
+                                        <Image src={bank.logoAsset} alt={`logo-${bank.id}`} class="w-10 h-10" format="svg" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <span class="font-mono font-bold text-xl" id={`${bank.id}-number`} style="color: var(--text-primary);">
+                                            {bank.accountNumber}
+                                        </span>
+                                        <div id={`${bank.id}-status`} 
+                                            class="mt-1 text-sm font-medium opacity-0 transition-all duration-300 transform translate-y-1" 
+                                            style="color: #10B981;">
+                                        </div>
+                                    </div>
+
+                                    <p class="font-semibold text-base mb-1" style="color: var(--text-primary);">
+                                        {bank.bankName}
+                                    </p>
+                                    <p class="text-sm opacity-70" style="color: var(--text-secondary);">
+                                        a.n: {bank.accountHolder}
+                                    </p>
+
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    
+                    <div class="pt-10 px-10 mt-10 border-t border-dashed border-opacity-30" style="border-color: var(--text-secondary); padding-top: 40px !important; padding-bottom: 40px !important;">
+                        <div class="flex items-center justify-center space-x-2 mb-4">
+                            
+                            <!-- Heart Left -->
+                            <svg class="w-5 h-5" fill="currentColor" style="color: var(--text-secondary);" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                2 6 4 4 6.5 4c1.74 0 3.41 1 4.13 2.44h0.74C14.09 5
+                                15.76 4 17.5 4 20 4 22 6 22 8.5c0 3.78-3.4 6.86-8.55
+                                11.54L12 21.35z"/>
+                            </svg>
+
+                            <!-- Text with real padding -->
+                            <p class="text-sm font-medium px-4 py-1 text-center" style="color: var(--text-secondary);">
+                                Terima kasih atas kehadiran dan doa restu Anda
+                            </p>
+
+                            <!-- Heart Right -->
+                            <svg class="w-5 h-5" fill="currentColor" style="color: var(--text-secondary);" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                2 6 4 4 6.5 4c1.74 0 3.41 1 4.13 2.44h0.74C14.09 5
+                                15.76 4 17.5 4 20 4 22 6 22 8.5c0 3.78-3.4 6.86-8.55
+                                11.54L12 21.35z"/>
+                            </svg>
+
+                        </div>
+
+                        <!-- Divider -->
+                         <div class="flex justify-center">
+                            <div 
+                                class="w-16 h-0.5 rounded-full"
+                                style="background: linear-gradient(90deg, var(--button-background-primary), var(--button-background-secondary));">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="ornaments-wrapper">
+                <div class="orn-gift--top tl-1">
+                    <div class="image-wrap" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100"> 
+                        <Image src={orn30} alt="Ornament" format="webp" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="gift-section-wrap" style="display: none;">
+    <div id="wedding-gifts" class="container wedding-gifts-wrap">
+        <div class="wedding-gifts-inner">
+            <h1 class="wedding-gifts-title text-center" style="font-family: Hurricane, sans-serif; font-size: 35px !important;">Kado Pernikahan</h1>
+        </div>
+        <div class="wedding-gifts-body">
+            <p class="wedding-gifts-label pt-2 mb-3">Kami sangat menghargai setiap bentuk dukungan dan kasih sayang yang diberikan.</p>
+            <div class="wedding-gift-address-wrap">
+                <div class="inner-address-wrap">
+                    <div class="wedding-gift-info-wrap">
+                        <p class="wedding-gift-address-label pt-2">Jalan Raja Inal Siregar (Perumahan Otoyana). Gg Bukit Horas. Batunadu Jae, Padang Sidempuan, Sumatera Utara</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4 mb-5" style="margin-top: 10px !important;">
+            <div class="mt-4 flex justify-center flex-col gap-3 py-3"> 
+                <a data-aos="fade-up" data-aos-duration="1000" target="_blank" href="https://maps.app.goo.gl/P4dVBUCQKiBig9Db9" class="btn-maps z-50 py-3 px-6">Alamat Pengiriman Hadiah</a> 
+            </div>
+        </div>
+    </div>
+</section>

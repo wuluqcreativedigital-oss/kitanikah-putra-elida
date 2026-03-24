@@ -1,0 +1,78 @@
+---
+// --- PROPS ---
+const { 
+    mainTitle, 
+    mainDescription, 
+    displayedTitleName, 
+    canonicalUrl, 
+    shareImageUrl 
+} = Astro.props;
+
+// Default untuk variabel statis
+const siteKeywords = "undangan pernikahan, wedding invitation, Putra Elida, pernikahan 2026, undangan digital, acara pernikahan, lokasi pernikahan, tanggal pernikahan, hadiah pernikahan";
+const siteAuthor = "Putra & Elida";
+const siteName = "Undangan Pernikahan Putra & Elida";
+
+// --- IMPORT FONT LOKAL UNTUK PRELOAD ---
+// Import tetap dipertahankan karena ini adalah font lokal yang harus di-preload.
+import CrimsonTextFont from '/fonts/Crimson_Text/CrimsonText-Regular.woff2';
+import HurricaneFont from '/fonts/Hurricane/Hurricane-Regular.woff2';
+
+
+---
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+<title>{mainTitle}</title>
+<meta name="description" content={mainDescription}>
+<meta name="keywords" content={siteKeywords}>
+<meta name="author" content={siteAuthor}>
+<meta property="og:title" content={mainTitle}>
+<meta property="og:description" content={mainDescription}>
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonicalUrl}>
+<meta property="og:site_name" content={siteName}>
+<meta property="og:image" content={shareImageUrl}>
+<meta property="og:image:alt" content="Undangan Pernikahan Putra & Elida">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={mainTitle}>
+<meta name="twitter:description" content={mainDescription}>
+<meta name="twitter:image" content={shareImageUrl}>
+<meta name="twitter:image:alt" content="Undangan Pernikahan Putra & Elida">
+
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon-16x16.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="canonical" href={canonicalUrl}>
+<meta name="robots" content="index, follow">
+
+
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"> -->
+
+<link rel="preload" href={CrimsonTextFont} as="font" type="font/woff2" crossorigin>
+<link rel="preload" href={HurricaneFont} as="font" type="font/woff2" crossorigin>
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- <link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/exclusive.css"> -->
+<style is:global>
+    @import url('/css/global.css');
+    @import url('/css/exclusive.css');
+</style>
+<!-- <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+<script src="https://cdn.tailwindcss.com" async></script> -->
+
+<!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script> -->

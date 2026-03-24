@@ -1,0 +1,57 @@
+---
+// Props
+const { musicUrl } = Astro.props;
+
+import { Image } from "astro:assets";
+import musicIcon from "../assets/images/music.webp";
+import musicPauseIcon from "../assets/images/pause-button.webp";
+
+const audioSrc = musicUrl;
+---
+
+<audio id="backgroundMusic" loop preload="auto" playsinline>
+    <source src={audioSrc} type="audio/mpeg" />
+    Browser Anda tidak mendukung audio.
+</audio>
+
+<div id="musicToggle" 
+     class="fixed bottom-4 right-4 z-50 cursor-pointer bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+    <img id="musicIcon" src={musicIcon.src} alt="Music Control" class="w-12 h-12" />
+</div>
+
+<script define:vars={{ musicIcon, musicPauseIcon }} is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("backgroundMusic");
+    const toggleButton = document.getElementById("musicToggle");
+    const icon = document.getElementById("musicIcon");
+
+    let isPlaying = false;
+
+    // --- SAFARI FIX: klik pertama langsung play ---
+    const startOnFirstClick = () => {
+        if (!isPlaying) {
+            music.play().then(() => {
+                icon.src = musicPauseIcon.src;
+                isPlaying = true;
+            }).catch(err => console.warn("Safari block:", err));
+        }
+    };
+
+    document.body.addEventListener("click", startOnFirstClick, { once: true });
+
+
+    // --- Toggle Play/Pause ---
+    toggleButton.addEventListener("click", () => {
+        if (isPlaying) {
+            music.pause();
+            icon.src = musicIcon.src;
+            isPlaying = false;
+        } else {
+            music.play().then(() => {
+                icon.src = musicPauseIcon.src;
+                isPlaying = true;
+            }).catch(err => console.warn("Play failed:", err));
+        }
+    });
+});
+</script>
